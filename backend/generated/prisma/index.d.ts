@@ -893,18 +893,21 @@ export namespace Prisma {
     id: number | null
     name: string | null
     value: string | null
+    inStock: boolean | null
   }
 
   export type ItemMaxAggregateOutputType = {
     id: number | null
     name: string | null
     value: string | null
+    inStock: boolean | null
   }
 
   export type ItemCountAggregateOutputType = {
     id: number
     name: number
     value: number
+    inStock: number
     _all: number
   }
 
@@ -921,18 +924,21 @@ export namespace Prisma {
     id?: true
     name?: true
     value?: true
+    inStock?: true
   }
 
   export type ItemMaxAggregateInputType = {
     id?: true
     name?: true
     value?: true
+    inStock?: true
   }
 
   export type ItemCountAggregateInputType = {
     id?: true
     name?: true
     value?: true
+    inStock?: true
     _all?: true
   }
 
@@ -1026,6 +1032,7 @@ export namespace Prisma {
     id: number
     name: string
     value: string
+    inStock: boolean | null
     _count: ItemCountAggregateOutputType | null
     _avg: ItemAvgAggregateOutputType | null
     _sum: ItemSumAggregateOutputType | null
@@ -1051,27 +1058,31 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     value?: boolean
+    inStock?: boolean
   }, ExtArgs["result"]["item"]>
 
   export type ItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     value?: boolean
+    inStock?: boolean
   }, ExtArgs["result"]["item"]>
 
   export type ItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     value?: boolean
+    inStock?: boolean
   }, ExtArgs["result"]["item"]>
 
   export type ItemSelectScalar = {
     id?: boolean
     name?: boolean
     value?: boolean
+    inStock?: boolean
   }
 
-  export type ItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "value", ExtArgs["result"]["item"]>
+  export type ItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "value" | "inStock", ExtArgs["result"]["item"]>
 
   export type $ItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Item"
@@ -1080,6 +1091,7 @@ export namespace Prisma {
       id: number
       name: string
       value: string
+      inStock: boolean | null
     }, ExtArgs["result"]["item"]>
     composites: {}
   }
@@ -1506,6 +1518,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Item", 'Int'>
     readonly name: FieldRef<"Item", 'String'>
     readonly value: FieldRef<"Item", 'String'>
+    readonly inStock: FieldRef<"Item", 'Boolean'>
   }
     
 
@@ -1889,7 +1902,8 @@ export namespace Prisma {
   export const ItemScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    value: 'value'
+    value: 'value',
+    inStock: 'inStock'
   };
 
   export type ItemScalarFieldEnum = (typeof ItemScalarFieldEnum)[keyof typeof ItemScalarFieldEnum]
@@ -1909,6 +1923,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -1945,6 +1967,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1968,12 +1997,14 @@ export namespace Prisma {
     id?: IntFilter<"Item"> | number
     name?: StringFilter<"Item"> | string
     value?: StringFilter<"Item"> | string
+    inStock?: BoolNullableFilter<"Item"> | boolean | null
   }
 
   export type ItemOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     value?: SortOrder
+    inStock?: SortOrderInput | SortOrder
   }
 
   export type ItemWhereUniqueInput = Prisma.AtLeast<{
@@ -1983,12 +2014,14 @@ export namespace Prisma {
     NOT?: ItemWhereInput | ItemWhereInput[]
     name?: StringFilter<"Item"> | string
     value?: StringFilter<"Item"> | string
+    inStock?: BoolNullableFilter<"Item"> | boolean | null
   }, "id">
 
   export type ItemOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     value?: SortOrder
+    inStock?: SortOrderInput | SortOrder
     _count?: ItemCountOrderByAggregateInput
     _avg?: ItemAvgOrderByAggregateInput
     _max?: ItemMaxOrderByAggregateInput
@@ -2003,45 +2036,53 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Item"> | number
     name?: StringWithAggregatesFilter<"Item"> | string
     value?: StringWithAggregatesFilter<"Item"> | string
+    inStock?: BoolNullableWithAggregatesFilter<"Item"> | boolean | null
   }
 
   export type ItemCreateInput = {
     name: string
     value: string
+    inStock?: boolean | null
   }
 
   export type ItemUncheckedCreateInput = {
     id?: number
     name: string
     value: string
+    inStock?: boolean | null
   }
 
   export type ItemUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
+    inStock?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type ItemUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
+    inStock?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type ItemCreateManyInput = {
     id?: number
     name: string
     value: string
+    inStock?: boolean | null
   }
 
   export type ItemUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
+    inStock?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type ItemUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
+    inStock?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2070,10 +2111,21 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type ItemCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     value?: SortOrder
+    inStock?: SortOrder
   }
 
   export type ItemAvgOrderByAggregateInput = {
@@ -2084,12 +2136,14 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     value?: SortOrder
+    inStock?: SortOrder
   }
 
   export type ItemMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     value?: SortOrder
+    inStock?: SortOrder
   }
 
   export type ItemSumOrderByAggregateInput = {
@@ -2130,8 +2184,20 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -2165,6 +2231,11 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2209,6 +2280,25 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
 
